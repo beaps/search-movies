@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
-import { Movie } from './components/Movie'
+import { MoviesList } from './components/MoviesList'
 
 import './App.css';
 
@@ -13,20 +13,6 @@ class App extends Component {
     this.setState({ results})
   }
 
-  renderResults = () => {
-    const { results } = this.state
-    return results.map(movie => {
-      return (
-        <Movie
-          key={movie.imdbID}
-          title={movie.Title}
-          year={movie.Year}
-          poster={movie.Poster}
-        />
-      )
-    })
-  }
-
   render() {
     return (
       <div className="App">
@@ -34,7 +20,7 @@ class App extends Component {
         <SearchForm onResults={this.handleResults} />
         {this.state.results.length === 0
           ? <p>Sin resultados</p>
-          : this.renderResults()
+          : < MoviesList movies={this.state.results} />
         }
       </div>
     )
