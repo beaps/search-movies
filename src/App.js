@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 
 import { Title } from './components/Title'
 import { SearchForm } from './components/SearchForm'
+import { Movie } from './components/Movie'
 
 import './App.css';
 
@@ -15,7 +16,14 @@ class App extends Component {
   renderResults = () => {
     const { results } = this.state
     return results.map(movie => {
-      return <p key={movie.imdbID}>{movie.Title}</p>
+      return (
+        <Movie
+          key={movie.imdbID}
+          title={movie.Title}
+          year={movie.Year}
+          poster={movie.Poster}
+        />
+      )
     })
   }
 
