@@ -7,10 +7,16 @@ import { MoviesList } from './components/MoviesList'
 import './App.css';
 
 class App extends Component {
-  state = { results: [] }
+  state = { usedSearch: false, results: [] }
 
   handleResults = (results) => {
-    this.setState({ results})
+    this.setState({ results, usedSearch: true})
+  }
+
+  renderResults() {
+    return this.state.results.length === 0
+      ? <p>Sorry! 😟 Results not found!</p>
+      : < MoviesList movies={this.state.results} />
   }
 
   render() {
@@ -18,9 +24,9 @@ class App extends Component {
       <div className="App">
         <Title>Search Movies</Title>
         <SearchForm onResults={this.handleResults} />
-        {this.state.results.length === 0
-          ? <p>Sin resultados</p>
-          : < MoviesList movies={this.state.results} />
+        {this.state.usedSearch
+          ? this.renderResults()
+          : <small>Use the form to search a movie</small>
         }
       </div>
     )
