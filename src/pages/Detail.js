@@ -5,7 +5,12 @@ const API_KEY = '7ab239d9'
 
 export class Detail extends Component {
   static propTypes = {
-    id: PropTypes.string
+    match: PropTypes.shape({
+      params: PropTypes.object,
+      isExact: PropTypes.bool,
+      path: PropTypes.string,
+      url: PropTypes.string
+    })
   }
 
   state = { movie: {} }
@@ -14,7 +19,6 @@ export class Detail extends Component {
     fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
       .then(response => response.json())
       .then(movie => {
-        console.log({ movie });
         this.setState({ movie })
       })
   }
@@ -24,8 +28,8 @@ export class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props
-    this.fetchMovie({ id })
+    const { movieId } = this.props.match.params
+    this.fetchMovie({ id: movieId })
   }
 
   render() {
