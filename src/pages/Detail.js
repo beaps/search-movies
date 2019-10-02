@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import { ButtonBackToHome } from '../components/ButtonBackToHome'
+
 const API_KEY = '7ab239d9'
 
 export class Detail extends Component {
@@ -23,10 +25,6 @@ export class Detail extends Component {
       })
   }
 
-  goBack() {
-    window.history.back()
-  }
-
   componentDidMount() {
     const { movieId } = this.props.match.params
     this.fetchMovie({ id: movieId })
@@ -37,7 +35,7 @@ export class Detail extends Component {
 
     return (
       <div>
-        <button onClick={this.goBack}>Volver</button>
+        <ButtonBackToHome />
         <h1>{Title}</h1>
         <img src={Poster} alt={Title} />
         <h3>{Actors}</h3>
