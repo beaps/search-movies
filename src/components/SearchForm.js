@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { SearchIcon } from './SearchIcon'
+
 const API_KEY = '7ab239d9'
 
 export class SearchForm extends Component {
@@ -27,17 +29,18 @@ export class SearchForm extends Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div>
+        <div className="search-container">
           <div>
             <input
+              className='search-container__input'
               onChange={this.handleChange}
               placeholder="Movie to search..."
               type="text"
             />
           </div>
           <div>
-            <button>
-              Search
+            <button className='search-container__button' type="button">
+              <SearchIcon />
           </button>
           </div>
         </div>
