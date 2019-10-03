@@ -39,7 +39,7 @@ export class SearchForm extends Component {
             />
           </div>
           <div>
-            <button className='search-container__button' type="button">
+            <button className='search-container__button' type="button" aria-label="search">
               <SearchIcon />
           </button>
           </div>
