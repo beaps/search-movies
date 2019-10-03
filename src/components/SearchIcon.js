@@ -10,8 +10,8 @@ export const SearchIcon = () => (
   >
     <line
       className="svg-container__line"
-      stroke-linecap="round"
-      stroke-width="3"
+      strokeLinecap="round"
+      strokeWidth="3"
       stroke="#000"
       x1="50%"
       x2="90%"
@@ -24,7 +24,7 @@ export const SearchIcon = () => (
       cy="20px"
       fill="#fff"
       r="18"
-      stroke-width="3"
+      strokeWidth="3"
       stroke="#000"
     />
   </svg>
