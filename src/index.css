@@ -132,6 +132,25 @@ figure {
   padding: 0 1rem;
 }
 
+.button-back-home {
+  background: var(--green);
+  border-bottom: 2px solid #46a68e;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: font-weight 0.5s;
+}
+
+.button-back-home:hover {
+  font-weight: bold;
+}
+
+.button-back-home:focus {
+  transform: scale(0.9);
+}
 
 @media (min-width: 1024px) {
   .MoviesList {
