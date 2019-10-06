@@ -21,6 +21,7 @@ export class Detail extends Component {
     fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
       .then(response => response.json())
       .then(movie => {
+        console.log(movie)
         this.setState({ movie })
       })
   }
@@ -36,11 +37,16 @@ export class Detail extends Component {
     return (
       <div>
         <ButtonBackToHome />
-        <h1>{Title}</h1>
-        <img src={Poster} alt={Title} />
-        <h3>{Actors}</h3>
-        <span>{Metascore}</span>
-        <p>{Plot}</p>
+        <div className="detail__grid-container">
+          <h1 className="detail__title">{Title}</h1>
+          <div className="detail__img-container">
+            <img className="detail__img" src={Poster} alt={Title} />
+            <span className="detail__score">{Metascore}</span>
+          </div>
+          <p className="detail__actors">{Actors}</p>
+          <p className="detail__plot">{Plot}</p>
+          <div className="detail__background"></div>
+        </div>
       </div>
     )
   }
