@@ -19,7 +19,7 @@ export class Detail extends Component {
   state = { movie: {} }
 
   fetchMovie({ id }) {
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
       .then(response => response.json())
       .then(movie => {
         console.log(movie)
