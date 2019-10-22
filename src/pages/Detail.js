@@ -16,14 +16,17 @@ export class Detail extends Component {
     })
   }
 
-  state = { movie: {} }
+  state = { 
+    movie: {},
+    loading: false
+   }
 
   fetchMovie({ id }) {
+    this.setState({ loading: true });
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
       .then(response => response.json())
       .then(movie => {
-        console.log(movie)
-        this.setState({ movie })
+        this.setState({ movie, loading: false })
       })
   }
 
@@ -38,16 +41,26 @@ export class Detail extends Component {
     return (
       <div>
         <ButtonBackToHome />
-        <div className="detail__grid-container">
-          <h1 className="detail__title">{Title}</h1>
-          <div className="detail__img-container">
-            <img className="detail__img" src={Poster} alt={Title} />
-            <span className="detail__score">{Metascore}</span>
-          </div>
-          <ActorsList actors={Actors ? Actors.split(', ') : []} />
-          <p className="detail__plot">{Plot}</p>
-          <div className="detail__background"></div>
-        </div>
+        {
+          this.state.loading
+            ? (
+              <div className="loader">
+                <div className="circle"></div>
+              </div>
+            )
+          : (
+              <div className="detail__grid-container">
+                <h1 className="detail__title">{Title}</h1>
+                <div className="detail__img-container">
+                  <img className="detail__img" src={Poster} alt={Title} />
+                  <span className="detail__score">{Metascore}</span>
+                </div>
+                <ActorsList actors={Actors ? Actors.split(', ') : []} />
+                <p className="detail__plot">{Plot}</p>
+                <div className="detail__background"></div>
+              </div>
+          )
+        }
       </div>
     )
   }
