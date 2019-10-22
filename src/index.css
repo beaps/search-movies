@@ -169,7 +169,7 @@ figure {
 
 .detail__grid-container {
   display: grid;
-  grid-template-columns: 1fr minmax(150px, 220px) 2rem;
+  grid-template-columns: auto minmax(150px, 220px) 2rem;
   grid-template-rows: 100px auto auto auto;
   max-width: 400px;
   margin: 0 auto;
@@ -199,7 +199,7 @@ figure {
   grid-column: 1 / 4;
   font-size: 14px;
   font-weight: 350;
-  padding: 0 1rem 1rem;
+  padding: 0 1.5rem 1rem;
   text-align: left;
   margin-top: 0;
 }
@@ -209,7 +209,7 @@ figure {
   grid-column: 1 / 2;
   align-self: end;
   margin-bottom: 0;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   text-align: left;
   font-size: 12px;
 }
