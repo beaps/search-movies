@@ -52,7 +52,13 @@ body {
   height: 34px;
   padding: 0.8rem;
   position: relative;
+  transition: all 0.5s;
   width: 34px;
+}
+
+.search-container__button:focus,
+.search-container__button:hover {
+  background: #52c5a8;
 }
 
 .svg-container {
