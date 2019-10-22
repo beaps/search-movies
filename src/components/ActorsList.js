@@ -8,12 +8,13 @@ export class ActorsList extends Component {
 
   render() {
     const { actors } = this.props
+    let id = 0
     return (
       <div className="actorsList">
         {
           actors.map((actor, index) => {
             return (
-              <p>{actor}</p>
+              <p key={id++}>{actor}</p>
             )
           })
         }
