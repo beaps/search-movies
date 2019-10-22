@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { ButtonBackToHome } from '../components/ButtonBackToHome'
+import { ActorsList } from '../components/ActorsList'
 
 const API_KEY = '7ab239d9'
 
@@ -43,7 +44,7 @@ export class Detail extends Component {
             <img className="detail__img" src={Poster} alt={Title} />
             <span className="detail__score">{Metascore}</span>
           </div>
-          <p className="detail__actors">{Actors}</p>
+          <ActorsList actors={Actors ? Actors.split(', ') : []} />
           <p className="detail__plot">{Plot}</p>
           <div className="detail__background"></div>
         </div>
